@@ -1,13 +1,18 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-
-import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Sidebar = () => {
   const [newOrderCount, setNewOrderCount] = useState(0);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/");
+    window.location.reload();
+  };
 
   useEffect(() => {
     axios
@@ -27,14 +32,14 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/dashboard" style={{ textDecoration: "none" }}>
           <span className="logo">E-commerce</span>
         </Link>
       </div>
       <hr className="break-sidebar" />
       <div className="center">
         <ul>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
               <span>Dashboard</span>
@@ -64,7 +69,8 @@ const Sidebar = () => {
               textDecoration: "none",
               display: "flex",
               alignItems: "center",
-            }}>
+            }}
+          >
             <li>
               <PersonOutlineIcon className="icon" />
               <span>New Orders</span>
@@ -77,7 +83,8 @@ const Sidebar = () => {
                   paddingLeft: 4,
                   paddingRight: 4,
                   borderRadius: 10,
-                }}>
+                }}
+              >
                 {newOrderCount}
               </span>
             </li>
@@ -86,6 +93,16 @@ const Sidebar = () => {
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Order History</span>
+            </li>
+          </Link>
+          <Link
+            to="/"
+            style={{ textDecoration: "none" }}
+            onClick={handleLogout}
+          >
+            <li>
+              <LogoutIcon className="icon" />
+              <span className="textfield">Logout</span>
             </li>
           </Link>
         </ul>

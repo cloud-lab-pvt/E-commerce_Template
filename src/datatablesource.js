@@ -15,6 +15,11 @@ export const productColumns = [
 // column headings
 export const categoryColumns = [
   {
+    field: "_id",
+    headerName: "Name",
+    width: 400,
+  },
+  {
     field: "name",
     headerName: "Name",
     width: 400,

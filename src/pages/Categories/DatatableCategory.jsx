@@ -94,7 +94,8 @@ const DatatableCategory = () => {
           <div className="cellAction">
             <div
               className="deleteButton"
-              onClick={() => handleDelete(params.row._id)}>
+              onClick={() => handleDelete(params.row._id)}
+            >
               Delete
             </div>
           </div>
@@ -111,7 +112,8 @@ const DatatableCategory = () => {
           onClick={() => {
             setOpenModal(true);
             setCategoryName("");
-          }}>
+          }}
+        >
           Add Category
         </div>
       </div>
@@ -119,7 +121,8 @@ const DatatableCategory = () => {
         <button
           onClick={() => {
             handleDeleteSelectedRows();
-          }}>
+          }}
+        >
           Delete Selected Rows
         </button>
       ) : null}
@@ -131,7 +134,8 @@ const DatatableCategory = () => {
               onClick={() => {
                 setOpenModal(false);
                 setErrorMessage(false);
-              }}>
+              }}
+            >
               X
             </p>
             <div style={{ margin: 40 }}>
@@ -173,7 +177,8 @@ const DatatableCategory = () => {
                     borderColor: "#007500",
                   }
                 : { backgroundColor: "red", borderWidth: 1, borderColor: "red" }
-            }>
+            }
+          >
             <PopupAlert popUpText={popUpText} />
           </div>
         </div>

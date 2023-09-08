@@ -11,6 +11,7 @@ import Users from "../pages/Users/Users";
 import UpdateUsers from "../pages/Users/UpdateUsers";
 import Orders from "../pages/NewOrders/Orders";
 import OrderHistory from "../pages/OrderHistory/OrderHistory";
+import Login from "../pages/Login/Login";
 
 function Adminroutes() {
   return (
@@ -18,7 +19,8 @@ function Adminroutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<Home />} />
 
             <Route path="categories">
               <Route index element={<Categories />} />
@@ -47,10 +49,7 @@ function Adminroutes() {
               <Route
                 path="update/:id"
                 element={
-                  <UpdateUsers
-                    inputs={productsUpdate}
-                    title="Update Users"
-                  />
+                  <UpdateUsers inputs={productsUpdate} title="Update Users" />
                 }
               />
             </Route>
